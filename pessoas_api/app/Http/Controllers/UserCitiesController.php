@@ -23,7 +23,7 @@ class UserCitiesController extends Controller
             $new_city->save();
 
             return response()->json([
-                'status' => 'sucess',
+                'status' => 'success',
                 'message' => 'Successfully Recorded',
                 'error' => '', 
                 'response' => ['new_city' => $new_city->name],
@@ -59,7 +59,7 @@ class UserCitiesController extends Controller
             }
 
             return response()->json([
-                'status' => 'sucess',
+                'status' => 'success',
                 'message' => 'Success to Find',
                 'error' => '', 
                 'response' => ['city' => $city->toArray()],
@@ -83,7 +83,7 @@ class UserCitiesController extends Controller
         $city = UserCity::all();
 
         return response()->json([
-            'status' => 'sucess',
+            'status' => 'success',
             'message' => 'Success in Searching',
             'error' => '', 
             'response' => ['cities' => $city->toArray()],
@@ -113,7 +113,7 @@ class UserCitiesController extends Controller
             $city->save();
 
             return response()->json([
-                'status' => 'sucess',
+                'status' => 'success',
                 'message' => 'Success to Update',
                 'error' => '', 
                 'response' => ['city_updated' => $city->toArray()],
@@ -149,7 +149,7 @@ class UserCitiesController extends Controller
             $city->delete();
 
             return response()->json([
-                'status' => 'sucess',
+                'status' => 'success',
                 'message' => 'Success when Deleting',
                 'error' => '', 
                 'response' => ['city_deleted' => $city_name],

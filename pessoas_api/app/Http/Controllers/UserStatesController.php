@@ -23,7 +23,7 @@ class UserStatesController extends Controller
             $new_state->save();
 
             return response()->json([
-                'status' => 'sucess',
+                'status' => 'success',
                 'message' => 'Successfully Recorded',
                 'error' => '', 
                 'response' => ['new_state' => $new_state->name],
@@ -58,7 +58,7 @@ class UserStatesController extends Controller
             }
 
             return response()->json([
-                'status' => 'sucess',
+                'status' => 'success',
                 'message' => 'Success to Find',
                 'error' => '', 
                 'response' => ['state' => $state->toArray()],
@@ -83,7 +83,7 @@ class UserStatesController extends Controller
         $state = UserState::all();
 
         return response()->json([
-            'status' => 'sucess',
+            'status' => 'success',
             'message' => 'Success in Searching',
             'error' => '', 
             'response' => ['states' => $state->toArray()],
@@ -113,7 +113,7 @@ class UserStatesController extends Controller
             $state->save();
 
             return response()->json([
-                'status' => 'sucess',
+                'status' => 'success',
                 'message' => 'Success to Update',
                 'error' => '', 
                 'response' => ['state_updated' => $state->toArray()],
@@ -150,7 +150,7 @@ class UserStatesController extends Controller
             $state->delete();
 
             return response()->json([
-                'status' => 'sucess',
+                'status' => 'success',
                 'message' => 'Success when Deleting',
                 'error' => '', 
                 'response' => ['state_deleted' => $state_name],

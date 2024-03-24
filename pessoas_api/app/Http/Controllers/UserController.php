@@ -26,7 +26,7 @@ class UserController extends Controller
             $new_user->save();
 
             return response()->json([
-                'status' => 'sucess',
+                'status' => 'success',
                 'message' => 'Successfully Recorded',
                 'error' => '', 
                 'response' => ['new_user' => $new_user->name],
@@ -63,7 +63,7 @@ class UserController extends Controller
             $user_name = $user->toArray();
 
             return response()->json([
-                'status' => 'sucess',
+                'status' => 'success',
                 'message' => 'Success to Find',
                 'error' => '', 
                 'response' => ['user' => $user_name],
@@ -88,7 +88,7 @@ class UserController extends Controller
         $user = User::with(['adresses'])->get();
 
         return response()->json([
-            'status' => 'sucess',
+            'status' => 'success',
             'message' => 'Success in Searching',
             'error' => '', 
             'response' => ['users' => $user->toArray()],
@@ -120,7 +120,7 @@ class UserController extends Controller
             $user->save();
 
             return response()->json([
-                'status' => 'sucess',
+                'status' => 'success',
                 'message' => 'Success to Update',
                 'error' => '', 
                 'response' => ['user_updated' => $user->toArray()],
@@ -157,7 +157,7 @@ class UserController extends Controller
             $user->delete();
 
             return response()->json([
-                'status' => 'sucess',
+                'status' => 'success',
                 'message' => 'Success when Deleting',
                 'error' => '', 
                 'response' => ['user_deleted' => $user_name],

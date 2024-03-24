@@ -30,7 +30,7 @@ class UserAdressController extends Controller
             $new_address->save();
 
             return response()->json([
-                'status' => 'sucess',
+                'status' => 'success',
                 'message' => 'Successfully Recorded',
                 'error' => '', 
                 'response' => ['new_address' => $new_address->street],
@@ -67,7 +67,7 @@ class UserAdressController extends Controller
             $adress_name = $adress->toArray();
 
             return response()->json([
-                'status' => 'sucess',
+                'status' => 'success',
                 'message' => 'Success to Find',
                 'error' => '', 
                 'response' => ['user' => $adress_name],
@@ -92,7 +92,7 @@ class UserAdressController extends Controller
         $adresses = UserAddress::all();
 
         return response()->json([
-            'status' => 'sucess',
+            'status' => 'success',
             'message' => 'Success in Searching',
             'error' => '', 
             'response' => ['users' => $adresses->toArray()],
@@ -104,7 +104,7 @@ class UserAdressController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $fields = $request->only(['name']);
+        $fields = $request->only(['street','district','postal_code','number','user_city_id','user_state_id','user_id']);
 
         try{
             $adress = UserAddress::find($id);
@@ -118,11 +118,17 @@ class UserAdressController extends Controller
                 ],422);
             }
 
-            $adress->name = $fields['name'];
+            $adress->street = $fields['street'];
+            $adress->district = $fields['district'];
+            $adress->postal_code = $fields['postal_code'];
+            $adress->number = $fields['number'];
+            $adress->user_city_id = $fields['user_city_id'];
+            $adress->user_state_id = $fields['user_state_id'];
+            $adress->user_id = $fields['user_id'];
             $adress->save();
 
             return response()->json([
-                'status' => 'sucess',
+                'status' => 'success',
                 'message' => 'Success to Update',
                 'error' => '', 
                 'response' => ['adress_updated' => $adress->toArray()],
@@ -155,11 +161,11 @@ class UserAdressController extends Controller
                 ],422);
             }
             
-            $adress_name = $adress->name;
+            $adress_name = $adress->street;
             $adress->delete();
 
             return response()->json([
-                'status' => 'sucess',
+                'status' => 'success',
                 'message' => 'Success when Deleting',
                 'error' => '', 
                 'response' => ['adress_deleted' => $adress_name],
