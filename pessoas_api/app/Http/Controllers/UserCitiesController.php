@@ -129,7 +129,7 @@ class UserCitiesController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Remove the specified resource from storage with soft delete.
      */
     public function destroy(string $id)
     {
